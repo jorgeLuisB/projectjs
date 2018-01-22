@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+				<html lang="en">
+				<head>
+					<meta charset="UTF-8">
+					<title>Inicio de Session</title>
+
+					<script
+					  src="https://code.jquery.com/jquery-3.3.1.min.js"
+					  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  		  crossorigin="anonymous"></script>
+					<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+					<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+					<link rel="stylesheet" type="text/css" href="session.css">
+					
+
+				</head>
+				<header class="hdr">
+				</header>
+				<hr>
+
+				<body><br>
+				<form>
+				<fieldset>
+					<legend>Iniciar Sesion::::</legend>
+						<label> Usuario: </label>
+						<input type="text" id="user"><br><br>
+						<label>Contraseña: </label>
+						<input type="password" id="pass"><br><br>
+						<input type="button" value="Ingresar" id="btnIngresar" onclick="Ingresar(document.getElementById('user').value)">
+
+				</fieldset>
+				</form>
+				<br><br>
+				<div class="row"  id="root">
+					
+				</div><br><br>
+
+
+				
+				</body>
+				<script type="text/javascript" src="session.js"></script>
+
+				</html>				
