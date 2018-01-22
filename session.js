@@ -56,11 +56,11 @@ function users(id){
  		  	  }
 		  }
 
-
+		coments();
 	 	    
  		})
 
-  coments();
+  
  		
 }
 
@@ -81,7 +81,7 @@ for(let i=0;i<pos_user.length;i++){
 
 }
 
-	console.log(pos_user,'----------');
+	
 
 	ver();
 }
@@ -89,22 +89,30 @@ for(let i=0;i<pos_user.length;i++){
 function ver(){
 
 
-	pos_comt=pos_user;
-    console.log(pos_comt, '+++++++');
+pos_comt=pos_user;
+console.log(pos_comt, '+++++++');
 	 $("#root").empty();
 
 	 	    for(let i=0;i<pos_comt.length;i++){
 
-	 	    	$("#root").append(`<div><ul class="list-group">
-									  <li class="list-group-item">${pos_comt[i].title}</li>
-									  <li class="list-group-item">${pos_comt[i].body}</li>
-									  		<ol class="list-group">
-									  		<li class="list-group-item">${pos_comt[i].comentario[i].name}</li>
-									  		<li class="list-group-item">${pos_comt[i].comentario[i].email}</li>
-									  		<li class="list-group-item">${pos_comt[i].comentario[i].body}</li>
-									  		</ol>
-									  </ul>	
+	 	    	$("#root").append(`<div class="color"><h3> POST ${i+1}:</h3>
+									  	 	<p> TITULO: ${pos_comt[i].title}</p>
+									  		<p> CUERPO: ${pos_comt[i].body}<p/>
+									  	
+									  <ul id="licomts${i}">
+
+									  </ul>
+									  
 								   </div>`);
+
+	 	    						for(let j=0;j<pos_comt[i].comentario.length;j++){
+
+	 	    							$("#licomts"+i).append(`<li class="list-group-item">${pos_comt[i].comentario[j].name} : ${pos_comt[i].comentario[j].body}</li>`);
+
+		    						}
+	 	    						
+
+									 
 
 	 	    }
 
