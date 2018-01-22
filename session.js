@@ -1,10 +1,9 @@
-var postId;
+
 var usersId;
 var postId;
 var pos_user=[];
 var pos_comt=[];
 var usuario;
-var band=0;
 
 
 
@@ -77,13 +76,15 @@ for(let i=0;i<pos_user.length;i++){
 
     		pos_user[i].comentario=comentarios;
 
+    		ver();
+
         })
 
 }
 
 	
 
-	ver();
+	
 }
 
 function ver(){
@@ -91,23 +92,24 @@ function ver(){
 
 pos_comt=pos_user;
 console.log(pos_comt, '+++++++');
+
 	 $("#root").empty();
 
 	 	    for(let i=0;i<pos_comt.length;i++){
 
-	 	    	$("#root").append(`<div class="color"><h3> POST ${i+1}:</h3>
+	 	    	$("#root").append(`<div class="color posts"  ><h5 class="pos_titulo"> POST ${i+1}:</h5>
 									  	 	<p> TITULO: ${pos_comt[i].title}</p>
 									  		<p> CUERPO: ${pos_comt[i].body}<p/>
 									  	
-									  <ul id="licomts${i}">
-
-									  </ul>
 									  
-								   </div>`);
+									</div><br><h5 class="pos_titulo">:::COMENTARIOS:::</h5>
+									<ul id="licomts${i}">
+									</ul>
+									 `);
 
 	 	    						for(let j=0;j<pos_comt[i].comentario.length;j++){
 
-	 	    							$("#licomts"+i).append(`<li class="list-group-item">${pos_comt[i].comentario[j].name} : ${pos_comt[i].comentario[j].body}</li>`);
+	 	    							$("#licomts"+i).append(`<li class="list-group-item  coments">${pos_comt[i].comentario[j].name} : ${pos_comt[i].comentario[j].body} <a href="#" class="btn btn-primary btnFav">Agregar a Favoritos</a></li>`);
 
 		    						}
 	 	    						

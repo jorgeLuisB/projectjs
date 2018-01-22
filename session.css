@@ -11,5 +11,24 @@
 
 .color{
 
-	background-color: red;
+	background-color: #ccc;
+}
+
+.btnFav{
+	float: right;
+}
+.coments{
+	width: 1300px;
+	height:100px;
+}
+
+.posts{
+	width: 1366px;
+}
+
+.pos_titulo{
+	text-align: center;
+}
+.com_titulo{
+text-align: center;	
 }
