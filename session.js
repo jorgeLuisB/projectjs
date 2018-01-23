@@ -3,6 +3,7 @@ var usersId;
 var postId;
 var pos_user=[];
 var pos_comt=[];
+var Comts_Fav=[];
 var usuario;
 
 
@@ -20,9 +21,7 @@ function Ingresar(user){
 	 	    		if(usuarios[i].username==usuario){
 
 	 	    			usersId=usuarios[i].id	
-	 	    				    			
-	 	    			users(usersId);	
-
+	 	    			users(usersId);
 
 	 	    		}
 	 	      	  }
@@ -90,8 +89,9 @@ for(let i=0;i<pos_user.length;i++){
 function ver(){
 
 
+
 pos_comt=pos_user;
-console.log(pos_comt, '+++++++');
+
 
 	 $("#root").empty();
 
@@ -109,7 +109,7 @@ console.log(pos_comt, '+++++++');
 
 	 	    						for(let j=0;j<pos_comt[i].comentario.length;j++){
 
-	 	    							$("#licomts"+i).append(`<li class="list-group-item  coments">${pos_comt[i].comentario[j].name} : ${pos_comt[i].comentario[j].body} <a href="#" class="btn btn-primary btnFav">Agregar a Favoritos</a></li>`);
+	 	    							$("#licomts"+i).append(`<li class="list-group-item  coments">${pos_comt[i].comentario[j].name} : ${pos_comt[i].comentario[j].body} <input type="button" class="btn btn-primary btnFav" id="${pos_comt[i].comentario[j].id}"  onclick="Fav_Comts(this.id, ${pos_comt[i].comentario[j].postId},${pos_comt[i].userId})" value="Agregar a Favoritos"></li>`);
 
 		    						}
 	 	    						
@@ -118,17 +118,53 @@ console.log(pos_comt, '+++++++');
 
 	 	    }
 
+
+	 	console.log('+++++++++++');  	
+
+
+
 	 	    			 
 	 	   	pos_comt=[];
   			
   			document.getElementById('user').value="";
   			document.getElementById('pass').value="";
-  			
-  			
-
 
 
 }
+
+
+function Fav_Comts(Id_Comts,Id_Post,Id_User){
+	console.table(Id_Comts,Id_Post,Id_User);
+	// $("#"+Id_Comts).prop('disabled',true);
+	 $("#"+Id_Comts).attr('value','Añadido a Favoritos');
+
+
+ let obj= {'Id_Usuario': Id_User, 'Id_post':Id_Post, 'comFav_Id':Id_Comts}
+ Comts_Fav.push(obj);
+
+ localStorage.setItem('Favoritos',JSON.stringify(Comts_Fav));
+
+}
+
+
+// if(localStorage.length>0){
+
+// 	 	    			 		let cometarios_Fav=[];
+
+// 	 	    			 		cometarios_Fav=JSON.parse(localStorage.getItem('Favoritos'));
+// 	 	    			 		// console.log(cometarios_Fav);
+	 	    			 		
+// 	 	    			 			for(let j=0;j<cometarios_Fav.length;j++){
+
+// 		 	    			 			if(cometarios_Fav[j].Id_Usuario == usersId){
+// 		 	    			 					console.log(cometarios_Fav[j].comFav_Id,'--------');
+	
+// 		 	    			 				$("#"+cometarios_Fav[j].comFav_Id).attr('value','Añadido a Favoritos');
+
+// 		 	    			 			}
+// 	 	    			 			}
+// 	 	    			 	}
+
 
 	 	  
 
